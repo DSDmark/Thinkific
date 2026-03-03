@@ -1,66 +1,264 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import CourseCard from "@/components/CourseCard";
+import Footer from "@/components/Footer";
+import {
+  Box,
+  Container,
+  Typography,
+  Grid2 as Grid,
+  Button,
+  TextField,
+} from "@mui/material";
 
 export default function Home() {
+  const featuredCourses = [
+    {
+      id: "work-with-emotions",
+      title: "3 Steps to Work WITH Your Emotions (Instead of Against)",
+      description: "Learn a powerful, 3-step process to navigate your emotions and turn them into allies for better decision-making and relationships.",
+      price: "$75.99",
+      image: "https://images.pexels.com/photos/4050291/pexels-photo-4050291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+      id: "coaching-through-challenge",
+      title: "Coaching Through Challenge",
+      description: "Equip yourself with the EQ tools to support others through difficult times. Ideal for coaches, managers, and educators.",
+      price: "$145.95",
+      image: "https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+      id: "managing-wellbeing",
+      title: "Managing Wellbeing",
+      description: "Based on the US Surgeon General's framework, this course helps managers build a culture of wellbeing and mental health in the workplace.",
+      price: "$295.00",
+      image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    }
+  ];
+
+  const clients = [
+    { name: "Google", logo: "https://logo.clearbit.com/google.com" },
+    { name: "Amazon", logo: "https://logo.clearbit.com/amazon.com" },
+    { name: "Microsoft", logo: "https://logo.clearbit.com/microsoft.com" },
+    { name: "FedEx", logo: "https://logo.clearbit.com/fedex.com" },
+    { name: "UN", logo: "https://logo.clearbit.com/un.org" },
+    { name: "Qatar Airways", logo: "https://logo.clearbit.com/qatarairways.com" },
+  ];
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <Box sx={{ minHeight: "100vh", backgroundColor: "background.paper" }}>
+      <Navbar />
+      <Hero />
+
+      {/* Clients Section */}
+      <Box sx={{ py: 8, borderBottom: "1px solid", borderColor: "divider" }}>
+        <Container maxWidth="lg">
+          <Typography
+            variant="overline"
+            sx={{
+              display: "block",
+              textAlign: "center",
+              mb: 4,
+              color: "text.secondary",
+              letterSpacing: 2,
+              fontWeight: 700,
+            }}
           >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            TRUSTED BY LEADERS WORLDWIDE
+          </Typography>
+          <Grid container spacing={4} justifyContent="center" alignItems="center">
+            {clients.map((client) => (
+              <Grid key={client.name} size={{ xs: 6, sm: 4, md: 2 }}>
+                <Box
+                  component="img"
+                  src={client.logo}
+                  alt={client.name}
+                  sx={{
+                    width: "100%",
+                    maxWidth: 100,
+                    height: "auto",
+                    filter: "grayscale(100%) opacity(0.5)",
+                    "&:hover": {
+                      filter: "grayscale(0%) opacity(1)",
+                      transition: "all 0.3s ease",
+                    },
+                    display: "block",
+                    mx: "auto",
+                  }}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* Featured Courses Section */}
+      <Box sx={{ py: 10 }}>
+        <Container maxWidth="lg">
+          <Typography
+            variant="h2"
+            sx={{
+              textAlign: "center",
+              mb: 8,
+              fontSize: { xs: "2rem", md: "2.5rem" },
+            }}
           >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            Featured Courses
+          </Typography>
+          <Grid container spacing={4} sx={{ mb: 6 }}>
+            {featuredCourses.map((course) => (
+              <Grid key={course.id} size={{ xs: 12, sm: 6, md: 4 }}>
+                <CourseCard {...course} />
+              </Grid>
+            ))}
+          </Grid>
+          <Box sx={{ textAlign: "center" }}>
+            <Button
+              variant="outlined"
+              color="primary"
+              size="large"
+              sx={{
+                borderWidth: 2,
+                "&:hover": {
+                  borderWidth: 2,
+                },
+                px: 4,
+              }}
+            >
+              VIEW ALL COURSES
+            </Button>
+          </Box>
+        </Container>
+      </Box>
+
+      {/* Difference Section */}
+      <Box sx={{ py: 10, backgroundColor: "#f9fbfd" }}>
+        <Container maxWidth="lg">
+          <Grid container spacing={8} alignItems="center">
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Box
+                component="img"
+                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="Emotional Intelligence"
+                sx={{
+                  width: "100%",
+                  height: "auto",
+                  borderRadius: "20px",
+                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
+                }}
+              />
+            </Grid>
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Typography variant="h2" gutterBottom sx={{ fontSize: "2rem" }}>
+                What makes us different?
+              </Typography>
+              <Typography variant="body1" sx={{ color: "text.secondary", mb: 4, lineHeight: 1.8 }}>
+                Unlike many providers, Six Seconds is a global community dedicated to the science of emotional intelligence. Our tools are research-based, validated, and used in over 150 countries.
+              </Typography>
+              <Box sx={{ mb: 4 }}>
+                {[
+                  "Scientific rigor and validation",
+                  "Global community of practitioners",
+                  "Practical, actionable tools for change",
+                  "Support for individuals and organizations"
+                ].map((item, index) => (
+                  <Box key={index} sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                    <Box
+                      sx={{
+                        width: 20,
+                        height: 20,
+                        borderRadius: "50%",
+                        backgroundColor: "secondary.main",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        mr: 2,
+                        color: "white",
+                        fontSize: "0.75rem",
+                        fontWeight: 900,
+                      }}
+                    >
+                      ✓
+                    </Box>
+                    <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                      {item}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
+              <Button variant="text" color="primary" sx={{ fontWeight: 700 }}>
+                LEARN MORE ABOUT OUR APPROACH →
+              </Button>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* Newsletter Section */}
+      <Box
+        sx={{
+          py: 10,
+          backgroundColor: "primary.main",
+          color: "white",
+        }}
+      >
+        <Container maxWidth="lg">
+          <Grid container spacing={4} alignItems="center">
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Typography variant="h3" sx={{ mb: 1, fontWeight: 700 }}>
+                Join the EQ community
+              </Typography>
+              <Typography variant="h6" sx={{ opacity: 0.8, fontWeight: 400 }}>
+                Get the latest research and tools for emotional intelligence delivered to your inbox.
+              </Typography>
+            </Grid>
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Box
+                component="form"
+                sx={{
+                  display: "flex",
+                  gap: 2,
+                  flexDirection: { xs: "column", sm: "row" },
+                }}
+              >
+                <TextField
+                  fullWidth
+                  placeholder="Your email address"
+                  variant="outlined"
+                  sx={{
+                    backgroundColor: "white",
+                    borderRadius: 1,
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      border: "none",
+                    },
+                  }}
+                  required
+                />
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "secondary.main",
+                    color: "white",
+                    px: 4,
+                    py: { xs: 1.5, sm: 0 },
+                    "&:hover": {
+                      backgroundColor: "secondary.dark",
+                    },
+                    whiteSpace: "nowrap",
+                  }}
+                  type="submit"
+                >
+                  SUBSCRIBE
+                </Button>
+              </Box>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
+      <Footer />
+    </Box>
   );
 }
