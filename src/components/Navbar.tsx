@@ -35,7 +35,7 @@ const Navbar = () => {
               variant="h6"
               sx={{
                 fontWeight: 800,
-                color: "primary.main",
+              color: "primary.main",
                 textTransform: "uppercase",
                 letterSpacing: "-1px",
                 fontSize: "1.5rem",
@@ -47,9 +47,10 @@ const Navbar = () => {
           <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
             <Button
               component={Link}
-              href="/all-courses"
+              href="/collections"
               sx={{
-                color: pathname === "/all-courses" ? "primary.main" : "text.primary",
+                color:
+                  pathname === "/collections" ? "primary.main" : "text.primary",
                 fontWeight: 700,
                 fontSize: "0.875rem",
                 letterSpacing: "0.05rem",
@@ -63,7 +64,24 @@ const Navbar = () => {
             </Button>
             <Button
               component={Link}
-              href="/sign-in"
+              href="/enrollments"
+              sx={{
+                color:
+                  pathname === "/enrollments" ? "primary.main" : "text.primary",
+                fontWeight: 700,
+                fontSize: "0.875rem",
+                letterSpacing: "0.05rem",
+                "&:hover": {
+                  backgroundColor: "transparent",
+                  color: "primary.main",
+                },
+              }}
+            >
+              My Dashboard
+            </Button>
+            <Button
+              component={Link}
+              href="/users/sign_in"
               startIcon={<AccountCircleOutlinedIcon />}
               sx={{
                 color: "text.primary",

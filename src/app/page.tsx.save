@@ -12,37 +12,30 @@ import {
   Button,
   TextField,
 } from "@mui/material";
-import Link from "next/link";
 
 export default function Home() {
   const featuredCourses = [
     {
       id: "work-with-emotions",
       title: "3 Steps to Work WITH Your Emotions (Instead of Against)",
-      description:
-        "Learn a powerful, 3-step process to navigate your emotions and turn them into allies for better decision-making and relationships.",
+      description: "Learn a powerful, 3-step process to navigate your emotions and turn them into allies for better decision-making and relationships.",
       price: "$75.99",
-      image:
-        "https://images.pexels.com/photos/4050291/pexels-photo-4050291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      image: "https://images.pexels.com/photos/4050291/pexels-photo-4050291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       id: "coaching-through-challenge",
       title: "Coaching Through Challenge",
-      description:
-        "Equip yourself with the EQ tools to support others through difficult times. Ideal for coaches, managers, and educators.",
+      description: "Equip yourself with the EQ tools to support others through difficult times. Ideal for coaches, managers, and educators.",
       price: "$145.95",
-      image:
-        "https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      image: "https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       id: "managing-wellbeing",
       title: "Managing Wellbeing",
-      description:
-        "Based on the US Surgeon General's framework, this course helps managers build a culture of wellbeing and mental health in the workplace.",
+      description: "Based on the US Surgeon General's framework, this course helps managers build a culture of wellbeing and mental health in the workplace.",
       price: "$295.00",
-      image:
-        "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    },
+      image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    }
   ];
 
   const clients = [
@@ -51,10 +44,7 @@ export default function Home() {
     { name: "Microsoft", logo: "https://logo.clearbit.com/microsoft.com" },
     { name: "FedEx", logo: "https://logo.clearbit.com/fedex.com" },
     { name: "UN", logo: "https://logo.clearbit.com/un.org" },
-    {
-      name: "Qatar Airways",
-      logo: "https://logo.clearbit.com/qatarairways.com",
-    },
+    { name: "Qatar Airways", logo: "https://logo.clearbit.com/qatarairways.com" },
   ];
 
   return (
@@ -78,16 +68,14 @@ export default function Home() {
           >
             TRUSTED BY LEADERS WORLDWIDE
           </Typography>
-          <Grid
-            container
-            spacing={4}
-            justifyContent="center"
-            alignItems="center"
-          >
+          <Grid container spacing={4} justifyContent="center" alignItems="center">
             {clients.map((client) => (
               <Grid key={client.name} size={{ xs: 6, sm: 4, md: 2 }}>
-                <Box style={{ textDecoration: "none" }}>
-                  <Box component="img" src={client.logo} alt={client.name} sx={{
+                <Box
+                  component="img"
+                  src={client.logo}
+                  alt={client.name}
+                  sx={{
                     width: "100%",
                     maxWidth: 100,
                     height: "auto",
@@ -98,8 +86,8 @@ export default function Home() {
                     },
                     display: "block",
                     mx: "auto",
-                  }} />
-                </Box>
+                  }}
+                />
               </Grid>
             ))}
           </Grid>
@@ -121,17 +109,13 @@ export default function Home() {
           </Typography>
           <Grid container spacing={4} sx={{ mb: 6 }}>
             {featuredCourses.map((course) => (
-              <Grid key={course.id} 
-              component={Link} href={"/courses/brain-profile-certification-bpc-2-0-EU"} 
-              size={{ xs: 12, sm: 6, md: 4 }}>
+              <Grid key={course.id} size={{ xs: 12, sm: 6, md: 4 }}>
                 <CourseCard {...course} />
               </Grid>
             ))}
           </Grid>
           <Box sx={{ textAlign: "center" }}>
             <Button
-              component={Link}
-              href="/collections"
               variant="outlined"
               color="primary"
               size="large"
@@ -170,25 +154,17 @@ export default function Home() {
               <Typography variant="h2" gutterBottom sx={{ fontSize: "2rem" }}>
                 What makes us different?
               </Typography>
-              <Typography
-                variant="body1"
-                sx={{ color: "text.secondary", mb: 4, lineHeight: 1.8 }}
-              >
-                Unlike many providers, Six Seconds is a global community
-                dedicated to the science of emotional intelligence. Our tools
-                are research-based, validated, and used in over 150 countries.
+              <Typography variant="body1" sx={{ color: "text.secondary", mb: 4, lineHeight: 1.8 }}>
+                Unlike many providers, Six Seconds is a global community dedicated to the science of emotional intelligence. Our tools are research-based, validated, and used in over 150 countries.
               </Typography>
               <Box sx={{ mb: 4 }}>
                 {[
                   "Scientific rigor and validation",
                   "Global community of practitioners",
                   "Practical, actionable tools for change",
-                  "Support for individuals and organizations",
+                  "Support for individuals and organizations"
                 ].map((item, index) => (
-                  <Box
-                    key={index}
-                    sx={{ display: "flex", alignItems: "center", mb: 2 }}
-                  >
+                  <Box key={index} sx={{ display: "flex", alignItems: "center", mb: 2 }}>
                     <Box
                       sx={{
                         width: 20,
@@ -235,8 +211,7 @@ export default function Home() {
                 Join the EQ community
               </Typography>
               <Typography variant="h6" sx={{ opacity: 0.8, fontWeight: 400 }}>
-                Get the latest research and tools for emotional intelligence
-                delivered to your inbox.
+                Get the latest research and tools for emotional intelligence delivered to your inbox.
               </Typography>
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>

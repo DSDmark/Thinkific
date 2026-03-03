@@ -1,13 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Box,
-  Button,
-  Container,
-  Typography,
-  Grid2 as Grid,
-} from "@mui/material";
+import { Box, Button, Container, Typography, Grid } from "@mui/material";
 
 const Hero = () => {
   return (
@@ -30,11 +24,19 @@ const Hero = () => {
                   mb: 4,
                 }}
               >
-                <Box component="span" sx={{ display: "inline-block", mr: 1 }}>Wellbeing.</Box>
-                <Box component="span" sx={{ display: "inline-block", mr: 1 }}>Quality of Life.</Box>
+                <Box component="span" sx={{ display: "inline-block", mr: 1 }}>
+                  Wellbeing.
+                </Box>
+                <Box component="span" sx={{ display: "inline-block", mr: 1 }}>
+                  Quality of Life.
+                </Box>
                 <br />
-                <Box component="span" sx={{ display: "inline-block", mr: 1 }}>Relationships.</Box>
-                <Box component="span" sx={{ display: "inline-block" }}>Effectiveness.</Box>
+                <Box component="span" sx={{ display: "inline-block", mr: 1 }}>
+                  Relationships.
+                </Box>
+                <Box component="span" sx={{ display: "inline-block" }}>
+                  Effectiveness.
+                </Box>
               </Typography>
               <Typography
                 variant="h6"
@@ -47,12 +49,13 @@ const Hero = () => {
                   fontWeight: 400,
                 }}
               >
-                Emotional intelligence (EQ) helps you turn your intentions into actions.
-                Our courses provide research-based tools to help you create positive change in yourself and the world.
+                Emotional intelligence (EQ) helps you turn your intentions into
+                actions. Our courses provide research-based tools to help you
+                create positive change in yourself and the world.
               </Typography>
               <Button
                 component={Link}
-                href="/all-courses"
+                href="/collections"
                 variant="contained"
                 color="primary"
                 size="large"
