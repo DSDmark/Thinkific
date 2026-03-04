@@ -218,7 +218,6 @@ export default function CourseBySlugPage({
           </Grid>
         </Container>
       </Box>
-
       <Footer />
     </Box>
   );
